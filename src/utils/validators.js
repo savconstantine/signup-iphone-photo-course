@@ -9,7 +9,7 @@ export default function validators() {
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
-    return !re ? `The input is not a valid ${fieldName} address` : "";
+    return !re ? `Please enter a valid ${fieldName}` : "";
   };
 
   return { isEmpty, isEmail };
