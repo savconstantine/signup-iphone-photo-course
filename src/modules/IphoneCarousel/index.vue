@@ -33,11 +33,11 @@ const previousSlide = computed(() => {
 
 <template>
   <div
-    class="w-full max-w-[393px] px-[20px] md:flex md:min-h-full md:flex-col md:justify-center"
+    class="w-full max-w-[393px] px-[4px] xs:px-[10px] md:flex md:min-h-full md:flex-col md:justify-center"
   >
-    <div class="relative">
+    <div class="iphone-bg-mokup">
       <BgPhoto :slide="currentSlide" />
-      <IphoneMokup />
+      <!-- <IphoneMokup /> -->
       <SmallPhoto :slide="previousSlide" />
       <ShutterButton />
       <MainPhoto :slide="currentSlide" />
@@ -45,3 +45,18 @@ const previousSlide = computed(() => {
     <ProgressIndicator />
   </div>
 </template>
+
+<style scoped>
+.iphone-bg-mokup {
+  @apply relative mx-auto h-[692px] w-full max-w-[310px] bg-contain bg-center bg-no-repeat xs:max-w-[336px];
+  background-image: url("@/assets/iPhoneCarousel/iPhone-mokup.png");
+  background-image: -webkit-image-set(
+    url("@/assets/iPhoneCarousel/iPhone-mokup@2x.png") 2x,
+    url("@/assets/iPhoneCarousel/iPhone-mokup@3x.png") 3x
+  );
+  background-image: image-set(
+    url("@/assets/iPhoneCarousel/iPhone-mokup@2x.png") 2x,
+    url("@/assets/iPhoneCarousel/iPhone-mokup@3x.png") 3x
+  );
+}
+</style>

@@ -32,7 +32,7 @@ const mainSrcset = computed(() => {
       :src="mainSrc"
       :alt="props.slide.alt"
       :srcset="mainSrcset"
-      class="absolute left-[23.5px] top-[118px] scale-125 blur-3xl"
+      class="absolute left-[20px] top-[118px] z-[-1] max-w-[250px] scale-125 blur-3xl sm:max-w-[305px]"
       :key="props.slide.name + '-bg'"
     />
   </transition>

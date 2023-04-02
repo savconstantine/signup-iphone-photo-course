@@ -4,7 +4,7 @@ import SignUpForm from "./SignUpForm.vue";
 
 <template>
   <div
-    class="mt-[79px] flex flex-col items-start justify-start gap-[16px] p-[16px] md:mt-0 md:min-h-full md:justify-center"
+    class="mt-[10px] flex flex-col items-start justify-start gap-[16px] p-[16px] xs:mt-[79px] md:mt-0 md:min-h-full md:justify-center"
   >
     <div
       class="flex shrink-0 grow-0 items-start justify-start rounded-[32px] bg-[#2b5341] px-4 py-2"

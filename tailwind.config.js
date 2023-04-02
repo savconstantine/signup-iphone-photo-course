@@ -28,6 +28,10 @@ module.exports = {
           "linear-gradient(135deg, #62051c 0%, #440c3a 100%) padding-box,linear-gradient(135deg, #d41c3d 0%, #861b83 100%) border-box",
       },
     },
+    screens: {
+      xs: "350px",
+      ...defaultTheme.screens,
+    },
     fontFamily: {
       sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
       serif: ["Montserrat", ...defaultTheme.fontFamily.serif],

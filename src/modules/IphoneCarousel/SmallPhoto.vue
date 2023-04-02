@@ -28,7 +28,7 @@ const mainSrcset = computed(() => {
 
 <template>
   <div
-    class="absolute bottom-[74px] left-[35px] h-[41px] w-[41px] overflow-hidden rounded-[1.5px] bg-black"
+    class="absolute bottom-[92px] left-[24px] h-[39px] w-[39px] overflow-hidden rounded-[1.5px] bg-black xs:bottom-[73px] xs:left-[28px] xs:h-[41px] xs:w-[41px]"
   >
     <transition name="fade-photo" mode="out-in">
       <img
