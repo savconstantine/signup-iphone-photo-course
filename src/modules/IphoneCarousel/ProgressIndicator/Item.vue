@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, computed, watch } from "vue";
+import { ref, defineProps, watch } from "vue";
 
 const props = defineProps({
   currentSlide: Number,
@@ -11,7 +11,7 @@ const fillerStyles = ref({ width: "0%" });
 
 watch(
   () => props.currentSlide,
-  (newVal, oldVal) => {
+  (newVal) => {
     console.log("newVal", newVal);
 
     if (newVal === 0) {

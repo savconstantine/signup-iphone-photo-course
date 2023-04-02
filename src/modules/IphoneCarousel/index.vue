@@ -6,13 +6,12 @@ import MainPhoto from "./MainPhoto.vue";
 import SmallPhoto from "./SmallPhoto.vue";
 import IphoneMokup from "./IphoneMokup.vue";
 import ShutterButton from "./ShutterButton.vue";
-import ProgressIndicator from "./ProgressIndicator/ProgressIndicator.vue";
+import ProgressIndicator from "./ProgressIndicator/List.vue";
 
 import { useIphoneCarousel } from "@/stores/iPhoneCarousel";
 
 const iphoneCarouselStore = useIphoneCarousel();
 
-// console.log(iphoneCarouselStore.getSlides);
 const slides = iphoneCarouselStore.getSlides;
 
 onMounted(() => {
@@ -23,7 +22,6 @@ const currentSlide = computed(
   () => slides[iphoneCarouselStore.getCurrentSlide]
 );
 
-// const currentSlide = iphoneCarouselStore.getCurrentSlideObject;
 const previousSlide = computed(() => {
   return slides[
     iphoneCarouselStore.getCurrentSlide - 1 < 0

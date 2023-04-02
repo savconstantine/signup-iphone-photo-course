@@ -3,7 +3,7 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <main class="flex min-h-screen justify-center bg-[#0f0f0f] text-[#EEECEC]">
+  <main class="flex min-h-screen justify-center">
     <RouterView v-slot="{ Component }">
       <transition name="fade" mode="out-in" appear>
         <component :is="Component" />

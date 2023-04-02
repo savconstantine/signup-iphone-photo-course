@@ -1,6 +1,6 @@
 <script setup>
-import IphonePhotoAcademyCopyBlock from "@/modules/IphonePhotoAcademyCopyBlock/IphonePhotoAcademyCopyBlock.vue";
-import IphoneCarousel from "@/modules/IphoneCarousel/IphoneCarousel.vue";
+import IphonePhotoAcademyCopyBlock from "@/modules/IphonePhotoAcademyCopyBlock/index.vue";
+import IphoneCarousel from "@/modules/IphoneCarousel/index.vue";
 import IPSLogo from "@/assets/ips-logo.svg?component";
 </script>
 

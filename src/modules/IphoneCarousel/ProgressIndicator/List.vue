@@ -1,5 +1,4 @@
 <script setup>
-import { ref, onMounted } from "vue";
 import Item from "./Item.vue";
 
 import { useIphoneCarousel } from "@/stores/iPhoneCarousel";
