@@ -1,7 +1,7 @@
 <script setup>
 import Item from "./Item.vue";
 
-import { useIphoneCarousel } from "@/stores/iPhoneCarousel";
+import { useIphoneCarousel } from "@/stores/iphoneCarousel.js";
 
 const iphoneCarouselStore = useIphoneCarousel();
 
