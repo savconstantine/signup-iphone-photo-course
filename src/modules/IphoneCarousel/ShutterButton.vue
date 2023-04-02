@@ -1,5 +1,5 @@
 <script setup>
-import { useIphoneCarousel } from "@/stores/iPhoneCarousel";
+import { useIphoneCarousel } from "@/stores/iphoneCarousel";
 
 const iphoneCarouselStore = useIphoneCarousel();
 

@@ -55,7 +55,6 @@ export const useIphoneCarousel = defineStore({
             ? 0
             : this.currentSlide + 1;
 
-            console.warn("store this.currentSlide", this.currentSlide);
         this.timeoutId = setTimeout(() => {
           intervalFunction();
         }, 8000);

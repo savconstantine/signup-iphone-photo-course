@@ -7,7 +7,7 @@ import SmallPhoto from "./SmallPhoto.vue";
 import ShutterButton from "./ShutterButton.vue";
 import ProgressIndicator from "./ProgressIndicator/List.vue";
 
-import { useIphoneCarousel } from "@/stores/iPhoneCarousel";
+import { useIphoneCarousel } from "@/stores/iphoneCarousel";
 
 const iphoneCarouselStore = useIphoneCarousel();
 
