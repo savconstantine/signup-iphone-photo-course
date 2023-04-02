@@ -16,7 +16,7 @@ const isCurrentItemLessThenCurrentSlide = (index) => {
 </script>
 
 <template>
-  <div class="flex w-full justify-center gap-[8px] pb-[30px] pt-[15px]">
+  <div class="flex w-full justify-center gap-[8px] pb-[54px] pt-[30px] md:pb-0">
     <Item
       v-for="(slide, index) in slides"
       :key="slide.id"
