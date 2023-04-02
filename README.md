@@ -1,6 +1,6 @@
 # signup-iphone-photo-course
 
-demo - https://signup-iphone-photo-course.onrender.com/
+demo - https://signup-iphone-photo-course.vercel.app/
 
 ## Project Setup
 

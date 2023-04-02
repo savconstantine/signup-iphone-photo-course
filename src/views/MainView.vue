@@ -4,11 +4,14 @@ import Spinner from "@/ui/Spinner.vue";
 
 import IphonePhotoAcademyCopyBlock from "@/modules/IphonePhotoAcademyCopyBlock/index.vue";
 import IPSLogoText from "@/assets/ips-logo-text.svg?component";
+import { preloadImgsToCache } from "@/utils/iphoneCarouselImages";
 
 const IphoneCarousel = defineAsyncComponent({
   loader: () => import("@/modules/IphoneCarousel/index.vue"),
   loadingComponent: Spinner,
 });
+
+preloadImgsToCache(["iPhone-mokup"], "png");
 </script>
 
 <template>
