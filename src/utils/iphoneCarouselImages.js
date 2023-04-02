@@ -1,5 +1,19 @@
-export const getSrc = (name) => {
-  return new URL(`/src/assets/iPhoneCarousel/${name}.jpg`, import.meta.url);
+export const getSrc = (name, ext = "jpg") => {
+  return new URL(`/src/assets/iPhoneCarousel/${name}.${ext}`, import.meta.url);
+};
+
+export const preloadImgsToCache = async (imgNameArray, ext = "jpg") => {
+  for (let name of imgNameArray) {
+    if (window.devicePixelRatio > 1) {
+      name = `${name}@${window.devicePixelRatio}x`;
+    }
+    const img = new Image();
+    img.src = new URL(
+      `/src/assets/iPhoneCarousel/${name}.${ext}`,
+      import.meta.url
+    );
+    img.onload = () => {};
+  }
 };
 
 export const getSrcset = (name, scaleArray = [2, 3]) => {
