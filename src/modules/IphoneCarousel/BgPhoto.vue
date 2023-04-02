@@ -1,29 +1,15 @@
 <script setup>
 import { defineProps, computed } from "vue";
+import { getSrc, getSrcset } from "@/utils/iphoneCarouselImages";
+
 const props = defineProps({
   slide: {
     type: Object,
   },
 });
 
-const mainSrc = computed(() => {
-  return new URL(
-    `/src/assets/iPhoneCarousel/${props.slide.name}.jpg`,
-    import.meta.url
-  );
-});
-
-const scaleArray = [2, 3];
-
-const mainSrcset = computed(() => {
-  return scaleArray.reduce((acc, scale) => {
-    acc = acc.length === 0 ? acc : `${acc}, `;
-    return `${acc}${new URL(
-      `/src/assets/iPhoneCarousel/${props.slide.name}@${scale}x.jpg`,
-      import.meta.url
-    )} ${scale}x`;
-  }, "");
-});
+const mainSrc = computed(() => getSrc(props.slide.name));
+const mainSrcset = computed(() => getSrcset(props.slide.name, [2, 3]));
 </script>
 
 <template>
