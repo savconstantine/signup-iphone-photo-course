@@ -12,7 +12,7 @@ const takeAPicture = () => {
 <template>
   <button
     type="button"
-    class="absolute bottom-[90px] left-[133px] h-[44px] w-[44px] rounded-full bg-white xs:bottom-[71px] xs:left-[145px] xs:h-[47px] xs:w-[47px]"
+    class="duration-400 absolute bottom-[90px] left-[133px] h-[44px] w-[44px] rounded-full bg-white transition-transform ease-linear active:scale-[0.80] xs:bottom-[71px] xs:left-[145px] xs:h-[47px] xs:w-[47px]"
     @click="takeAPicture"
   ></button>
 </template>
