@@ -7,11 +7,18 @@ import SmallPhoto from "./SmallPhoto.vue";
 import ShutterButton from "./ShutterButton.vue";
 import ProgressIndicator from "./ProgressIndicator/List.vue";
 
+import { preloadImgsToCache } from "@/utils/iphoneCarouselImages";
+
 import { useIphoneCarousel } from "@/stores/iphoneCarousel";
 
 const iphoneCarouselStore = useIphoneCarousel();
 
 const slides = iphoneCarouselStore.getSlides;
+
+preloadImgsToCache(
+  slides.map((slide) => slide.name),
+  "jpg"
+);
 
 onMounted(() => {
   iphoneCarouselStore.rollTheSlides();
