@@ -4,7 +4,6 @@ import { onMounted, computed } from "vue";
 import BgPhoto from "./BgPhoto.vue";
 import MainPhoto from "./MainPhoto.vue";
 import SmallPhoto from "./SmallPhoto.vue";
-import IphoneMokup from "./IphoneMokup.vue";
 import ShutterButton from "./ShutterButton.vue";
 import ProgressIndicator from "./ProgressIndicator/List.vue";
 
@@ -37,7 +36,6 @@ const previousSlide = computed(() => {
   >
     <div class="iphone-bg-mokup">
       <BgPhoto :slide="currentSlide" />
-      <!-- <IphoneMokup /> -->
       <SmallPhoto :slide="previousSlide" />
       <ShutterButton />
       <MainPhoto :slide="currentSlide" />
