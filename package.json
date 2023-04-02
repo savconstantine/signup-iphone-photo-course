@@ -1,6 +1,6 @@
 {
-  "name": "vue3-boilerplate",
-  "version": "1.0.0",
+  "name": "sighup-iphone-photo-course",
+  "version": "1.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
