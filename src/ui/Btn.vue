@@ -8,7 +8,7 @@
 
 <style lang="scss" scoped>
 .ips-btn-bg {
-  @apply relative z-[1] box-border flex w-full items-center justify-center rounded-[6px] border-[1px] border-transparent bg-clip-padding px-[35.5px] py-4 transition-transform duration-100 ease-linear active:scale-[0.95];
+  @apply relative z-[1] box-border flex w-full items-center justify-center rounded-[6px] border-[1px] border-transparent bg-clip-padding px-[35.5px] py-4 transition-transform duration-100 ease-linear active:scale-[0.95] md:w-auto md:min-w-[201px];
   background: linear-gradient(135deg, #370c14 0%, #280c23 100%) padding-box,
     linear-gradient(135deg, #d41c3d 0%, #861b83 100%) border-box;
 

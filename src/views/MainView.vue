@@ -6,7 +6,7 @@ import IPSLogo from "@/assets/ips-logo.svg?component";
 
 <template>
   <div
-    class="flex w-full max-w-[393px] flex-col items-start justify-start gap-4 md:flex-row"
+    class="flex w-full max-w-[393px] flex-col items-start justify-start gap-4 md:max-w-[1200px] md:flex-row md:justify-between"
   >
     <IPSLogo class="absolute left-[20px] top-[62px] hidden h-[45px] md:block" />
     <IphonePhotoAcademyCopyBlock />

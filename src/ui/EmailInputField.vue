@@ -34,7 +34,7 @@ const validateEmail = () => {
 </script>
 
 <template>
-  <div class="relative mb-3 w-full">
+  <div class="relative mb-3 w-full md:max-w-[423px]">
     <input
       type="email"
       class="focus:border-primary focus:shadow-te-primary peer m-0 block h-[62px] w-full rounded-md border border-solid border-[#3A3A3A] bg-[#171715] bg-clip-padding p-[16px] pr-[45px] text-[16px] font-normal leading-tight text-[#EEECEC] ease-in-out placeholder:text-transparent focus:bg-[#171715] focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-[#EEECEC] focus:outline-none [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem]"
