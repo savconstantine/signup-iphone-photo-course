@@ -1,17 +1,20 @@
 <script setup>
-import { defineAsyncComponent } from "vue";
+import { ref, defineAsyncComponent } from "vue";
 import Spinner from "@/ui/Spinner.vue";
 
 import IphonePhotoAcademyCopyBlock from "@/modules/IphonePhotoAcademyCopyBlock/index.vue";
 import IPSLogoText from "@/assets/ips-logo-text.svg?component";
-import { preloadImgsToCache } from "@/utils/iphoneCarouselImages";
+import { preloadSingleImgToCache } from "@/utils/iphoneCarouselImages";
 
 const IphoneCarousel = defineAsyncComponent({
   loader: () => import("@/modules/IphoneCarousel/index.vue"),
   loadingComponent: Spinner,
 });
 
-preloadImgsToCache(["iPhone-mokup"], "png");
+const displayIphoneOnLoadImg = ref(false);
+preloadSingleImgToCache(["iPhone-mokup"], "png")
+  .then(() => (displayIphoneOnLoadImg.value = true))
+  .catch((error) => console.error("Failed to load image:", error));
 </script>
 
 <template>
@@ -22,6 +25,9 @@ preloadImgsToCache(["iPhone-mokup"], "png");
       class="absolute left-[20px] top-[62px] hidden h-[45px] md:block"
     />
     <IphonePhotoAcademyCopyBlock />
-    <IphoneCarousel />
+    <transition name="fade-photo" mode="out-in" appear>
+      <IphoneCarousel v-if="displayIphoneOnLoadImg" />
+      <Spinner v-else />
+    </transition>
   </div>
 </template>
