@@ -4,15 +4,32 @@ import Spinner from "@/ui/Spinner.vue";
 
 import IphonePhotoAcademyCopyBlock from "@/modules/IphonePhotoAcademyCopyBlock/index.vue";
 import IPSLogoText from "@/assets/ips-logo-text.svg?component";
-import { preloadSingleImgToCache } from "@/utils/iphoneCarouselImages";
+import {
+  preloadSingleImgToCache,
+  preloadImgsToCache,
+} from "@/utils/iphoneCarouselImages";
+import { useIphoneCarousel } from "@/stores/iphoneCarousel";
 
 const IphoneCarousel = defineAsyncComponent({
   loader: () => import("@/modules/IphoneCarousel/index.vue"),
   loadingComponent: Spinner,
 });
 
+const iphoneCarouselStore = useIphoneCarousel();
+
+const slides = iphoneCarouselStore.getSlides;
+
 const displayIphoneOnLoadImg = ref(false);
-preloadSingleImgToCache(["iPhone-mokup"], "png")
+const iphoneImgLoadPromise = preloadSingleImgToCache(["iPhone-mokup"], "png");
+
+const slidesImgLoadPromise = preloadImgsToCache(
+  slides.reduce((acc, slide) => {
+    return [...acc, slide.name, `small-${slide.name}`];
+  }, []),
+  "jpg"
+);
+
+Promise.all([iphoneImgLoadPromise, slidesImgLoadPromise])
   .then(() => (displayIphoneOnLoadImg.value = true))
   .catch((error) => console.error("Failed to load image:", error));
 </script>

@@ -8,7 +8,7 @@ const props = defineProps({
   },
 });
 
-const mainSrc = computed(() => getSrc(props.slide.name));
+const mainSrc = computed(() => getSrc(`small-${props.slide.name}`));
 const mainSrcset = computed(() =>
   getSrcset(`small-${props.slide.name}`, [2, 3])
 );
