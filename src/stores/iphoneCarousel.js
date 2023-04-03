@@ -36,13 +36,13 @@ export const useIphoneCarousel = defineStore({
       return this.currentSlide;
     },
     getCurrentSlideObject() {
-      return this.slides[this.getCurrentSlide()];
+      return this.slides[this.getCurrentSlide];
     },
     getPreviousSlideObject() {
       return this.slides[
-        this.getCurrentSlide() - 1 < 0
+        this.getCurrentSlide - 1 < 0
           ? this.slides.length - 1
-          : this.getCurrentSlide() - 1
+          : this.getCurrentSlide - 1
       ];
     },
   },
