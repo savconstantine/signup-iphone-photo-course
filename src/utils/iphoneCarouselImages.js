@@ -2,17 +2,29 @@ export const getSrc = (name, ext = "jpg") => {
   return new URL(`/src/assets/iPhoneCarousel/${name}.${ext}`, import.meta.url);
 };
 
+export const preloadSingleImgToCache = (name, ext = "jpg") => {
+  if (window.devicePixelRatio > 1) {
+    name = `${name}@${window.devicePixelRatio}x`;
+  }
+  const img = new Image();
+  img.src = new URL(
+    `/src/assets/iPhoneCarousel/${name}.${ext}`,
+    import.meta.url
+  );
+  return new Promise((resolve, reject) => {
+    img.onload = () => {
+      resolve(true);
+    };
+
+    img.onerror = () => {
+      reject(new Error(`Failed to load image: ${img.src}`));
+    };
+  });
+};
+
 export const preloadImgsToCache = async (imgNameArray, ext = "jpg") => {
   for (let name of imgNameArray) {
-    if (window.devicePixelRatio > 1) {
-      name = `${name}@${window.devicePixelRatio}x`;
-    }
-    const img = new Image();
-    img.src = new URL(
-      `/src/assets/iPhoneCarousel/${name}.${ext}`,
-      import.meta.url
-    );
-    img.onload = () => {};
+    preloadSingleImgToCache(name, ext);
   }
 };
 
