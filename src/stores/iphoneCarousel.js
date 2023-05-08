@@ -4,7 +4,7 @@ export const useIphoneCarousel = defineStore({
   id: "IphoneCarousel",
   state: () => ({
     timeoutId: null,
-    currentSlide: 3,
+    currentSlide: -1,
     iphoneMockupFilename: "iPhone-mokup",
     slides: [
       {
