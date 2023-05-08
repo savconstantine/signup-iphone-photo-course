@@ -46,7 +46,9 @@ html {
   opacity: 0;
 }
 
-.fade-photo-enter-active,
+.fade-photo-enter-active {
+  transition: opacity 0.5s ease 0.5s;
+}
 .fade-photo-leave-active {
   transition: opacity 0.5s ease;
 }

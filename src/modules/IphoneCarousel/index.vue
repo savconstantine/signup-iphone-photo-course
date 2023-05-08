@@ -1,52 +1,42 @@
 <script setup>
-import { onMounted, computed } from "vue";
+import { defineAsyncComponent, watch } from "vue";
 
-import BgPhoto from "./BgPhoto.vue";
-import MainPhoto from "./MainPhoto.vue";
-import SmallPhoto from "./SmallPhoto.vue";
-import ShutterButton from "./ShutterButton.vue";
-import ProgressIndicator from "./ProgressIndicator/List.vue";
+import IphoneMockup from "./IphoneMockup.vue";
+
+const ShutterButton = defineAsyncComponent(() => import("./ShutterButton.vue"));
+const BgPhoto = defineAsyncComponent(() => import("./BgPhoto.vue"));
+const MainPhoto = defineAsyncComponent(() => import("./MainPhoto.vue"));
+const SmallPhoto = defineAsyncComponent(() => import("./SmallPhoto.vue"));
+const ProgressIndicator = defineAsyncComponent(() =>
+  import("./ProgressIndicator/List.vue")
+);
 
 import { useIphoneCarousel } from "@/stores/iphoneCarousel";
-
 const iphoneCarouselStore = useIphoneCarousel();
 
-onMounted(() => {
-  iphoneCarouselStore.rollTheSlides();
-});
-
-const currentSlide = computed(() => iphoneCarouselStore.getCurrentSlideObject);
-
-const previousSlide = computed(() => {
-  return iphoneCarouselStore.getPreviousSlideObject;
-});
+watch(
+  () => iphoneCarouselStore.isAllPicturesLoaded,
+  (isAllPicturesLoaded) => {
+    if (isAllPicturesLoaded) {
+      iphoneCarouselStore.rollTheSlides();
+    }
+  }
+);
 </script>
 
 <template>
   <div
     class="w-full max-w-[393px] px-[4px] xs:px-[10px] md:flex md:min-h-full md:flex-col md:justify-center"
   >
-    <div class="iphone-bg-mokup">
-      <BgPhoto :slide="currentSlide" />
-      <SmallPhoto :slide="previousSlide" />
+    <div
+      class="relative mx-auto h-[692px] w-full max-w-[310px] bg-contain bg-center bg-no-repeat xs:max-w-[336px]"
+    >
+      <BgPhoto />
+      <IphoneMockup />
+      <SmallPhoto />
       <ShutterButton />
-      <MainPhoto :slide="currentSlide" />
+      <MainPhoto />
     </div>
     <ProgressIndicator />
   </div>
 </template>
-
-<style scoped>
-.iphone-bg-mokup {
-  @apply relative mx-auto h-[692px] w-full max-w-[310px] bg-contain bg-center bg-no-repeat xs:max-w-[336px];
-  background-image: url("@/assets/iPhoneCarousel/iPhone-mokup.png");
-  background-image: -webkit-image-set(
-    url("@/assets/iPhoneCarousel/iPhone-mokup@2x.png") 2x,
-    url("@/assets/iPhoneCarousel/iPhone-mokup@3x.png") 3x
-  );
-  background-image: image-set(
-    url("@/assets/iPhoneCarousel/iPhone-mokup@2x.png") 2x,
-    url("@/assets/iPhoneCarousel/iPhone-mokup@3x.png") 3x
-  );
-}
-</style>
