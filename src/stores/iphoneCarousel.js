@@ -44,6 +44,7 @@ export const useIphoneCarousel = defineStore({
         : state.currentSlide - 1,
     isAllPicturesLoaded: (state) =>
       Object.values(state.pictureLoadStatus).every((value) => value === true),
+    isIphoneMockupLoaded: (state) => state.pictureLoadStatus.iphoneMockup,
   },
   actions: {
     rollTheSlides() {

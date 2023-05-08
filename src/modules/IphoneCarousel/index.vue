@@ -1,5 +1,5 @@
 <script setup>
-import { defineAsyncComponent, watch } from "vue";
+import { computed, defineAsyncComponent, watch } from "vue";
 
 import IphoneMockup from "./IphoneMockup.vue";
 
@@ -22,6 +22,10 @@ watch(
     }
   }
 );
+
+const isIphoneMockupLoaded = computed(
+  () => iphoneCarouselStore.isIphoneMockupLoaded
+);
 </script>
 
 <template>
@@ -33,10 +37,10 @@ watch(
     >
       <BgPhoto />
       <IphoneMockup />
-      <SmallPhoto />
-      <ShutterButton />
-      <MainPhoto />
+      <SmallPhoto v-if="isIphoneMockupLoaded" />
+      <ShutterButton v-if="isIphoneMockupLoaded" />
+      <MainPhoto v-if="isIphoneMockupLoaded" />
     </div>
-    <ProgressIndicator />
+    <ProgressIndicator v-if="isIphoneMockupLoaded" />
   </div>
 </template>
