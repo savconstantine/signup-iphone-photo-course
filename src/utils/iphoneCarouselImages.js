@@ -28,11 +28,11 @@ export const preloadImgsToCache = async (imgNameArray, ext = "jpg") => {
   }
 };
 
-export const getSrcset = (name, scaleArray = [2, 3]) => {
+export const getSrcset = (name, scaleArray = [2, 3], ext = "jpg") => {
   return scaleArray.reduce((acc, scale) => {
     acc = acc.length === 0 ? acc : `${acc}, `;
     return `${acc}${new URL(
-      `/src/assets/iPhoneCarousel/${name}@${scale}x.jpg`,
+      `/src/assets/iPhoneCarousel/${name}@${scale}x.${ext}`,
       import.meta.url
     )} ${scale}x`;
   }, "");
