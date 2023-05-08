@@ -2,14 +2,12 @@
 import { computed, defineAsyncComponent, watch } from "vue";
 
 import IphoneMockup from "./IphoneMockup.vue";
+import ProgressIndicator from "./ProgressIndicator/List.vue";
 
 const ShutterButton = defineAsyncComponent(() => import("./ShutterButton.vue"));
 const BgPhoto = defineAsyncComponent(() => import("./BgPhoto.vue"));
 const MainPhoto = defineAsyncComponent(() => import("./MainPhoto.vue"));
 const SmallPhoto = defineAsyncComponent(() => import("./SmallPhoto.vue"));
-const ProgressIndicator = defineAsyncComponent(() =>
-  import("./ProgressIndicator/List.vue")
-);
 
 import { useIphoneCarousel } from "@/stores/iphoneCarousel";
 const iphoneCarouselStore = useIphoneCarousel();
@@ -41,6 +39,6 @@ const isIphoneMockupLoaded = computed(
       <ShutterButton v-if="isIphoneMockupLoaded" />
       <MainPhoto v-if="isIphoneMockupLoaded" />
     </div>
-    <ProgressIndicator v-if="isIphoneMockupLoaded" />
+    <ProgressIndicator />
   </div>
 </template>
